@@ -1,0 +1,19 @@
+{
+  "name": "database",
+  "description": "global database package",
+  "main": "index.ts",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate --accept-data-loss",
+    "db:studio": "prisma studio --port 5556"
+  },
+  "author": "Arthur Lee",
+  "devDependencies": {
+    "prisma": "^4.13.0",
+    "tsconfig": "*",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0"
+  }
+}

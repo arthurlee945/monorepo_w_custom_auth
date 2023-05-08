@@ -1,0 +1,11 @@
+{
+  "name": "global-constants",
+  "version": "1.0.0",
+  "types": "./index.ts",
+  "main": "./index.ts",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "arthur lee",
+  "license": "ISC"
+}

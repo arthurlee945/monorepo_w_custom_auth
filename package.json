@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "dotenv -- turbo run build",
+    "dev": "dotenv -- turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:generate": "dotenv -- turbo run db:generate",
+    "db:push": "dotenv -- turbo run db:push",
+    "db:studio": "dotenv -- turbo run db:studio"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "prettier": "^2.5.1",
+    "turbo": "latest",
+    "typescript": "^5.0.4"
+  },
+  "name": "monorepo_w_custom_auth",
+  "packageManager": "npm@7.22.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

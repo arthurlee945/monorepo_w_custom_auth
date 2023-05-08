@@ -1,0 +1,44 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env","**/.env.*local"],
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:generate": {
+      "inputs": ["prisma/schema.prisma"],
+      "cache":false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:push":{
+      "inputs": ["prisma/schema.prisma"],
+      "cache":false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:studio":{
+      "inputs": ["prisma/schema.prisma"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    }
+  },
+  "globalEnv": [
+    "DATABASE_URL",
+    "JWT_SECRET",
+    "JWT_EXPIRES_IN",
+    "EMAIL_HOST",
+    "EMAIL_PORT",
+    "EMAIL_USERNAME",
+    "EMAIL_PASSWORD",
+    "APP_URL",
+    "API_URL",
+    "NEXT_PUBLIC_RECAPTCHA_SITE_KEY",
+    "RECAPTCHA_SECRET_KEY",
+    "PORT",
+    "NODE_ENV"
+  ]
+}

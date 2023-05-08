@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MODERATOR
+  USER
+}
+
+model User {
+  id                     String    @id @default(cuid())
+  username               String    @unique
+  email                  String    @unique
+  emailVerified          Boolean   @default(false)
+  emailVerificationToken String?
+  password               String
+  avatar                 String?
+  role                   Role      @default(USER)
+  passwordChangedAt      DateTime?
+  resetPasswordToken     String?
+  resetPasswordExpires   DateTime?
+  active                 Boolean   @default(true)
+  posts                  Post[]
+  comments               Comment[]
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+}
+
+model Post {
+  id         String     @id @default(cuid())
+  title      String
+  content    String
+  view       Int        @default(0)
+  rating     Int        @default(0)
+  city       String?
+  state      String?
+  long       Float?
+  lat        Float?
+  //----------------relations
+  categories Category[]
+  comments   Comment[]
+  author     User?      @relation(fields: [authorId], references: [id])
+  authorId   String?
+  //----------------defaults
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String
+  posts Post[]
+}
+
+// model Location {
+//   id    String @id @default(cuid())
+//   city  String
+//   state String
+//   long  Float
+//   Lat   Float
+//   Post  Post?
+// }
+
+model Comment {
+  id        String   @id @default(cuid())
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  //----------relations
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    String?
+}

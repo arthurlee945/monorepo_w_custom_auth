@@ -1,0 +1,29 @@
+{
+  "name": "trpc-api",
+  "version": "0.1.0",
+  "types": "./index.ts",
+  "main": "./index.ts",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "arthur lee",
+  "license": "ISC",
+  "dependencies": {
+    "@trpc/client": "^10.21.1",
+    "@trpc/server": "^10.21.1",
+    "bcrypt": "^5.1.0",
+    "database": "*",
+    "jsonwebtoken": "^9.0.0",
+    "nodemailer": "^6.9.1",
+    "superjson": "^1.12.2",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/nodemailer": "^6.4.7",
+    "eslint": "^8.38.0",
+    "tsconfig": "*",
+    "typescript": "^5.0.4"
+  }
+}
