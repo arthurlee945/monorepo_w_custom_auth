@@ -7,14 +7,14 @@ import url from "url";
 
 import { getBaseUrl } from "../../../utils/getBaseUrl";
 
-const API_URL = getBaseUrl();
+const API_URL = getBaseUrl() + "/api";
 
 const proxyOption = {
     // ignorePath: true,
-    secure: false,
+    secure: process.env.NODE_ENV === "development" ? false : true,
 };
 
-const proxy = httpProxy.createProxyServer();
+const proxy = httpProxy.createProxyServer(proxyOption);
 
 export const config = {
     api: {
