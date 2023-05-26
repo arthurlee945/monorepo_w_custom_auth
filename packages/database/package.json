@@ -3,7 +3,8 @@
   "description": "global database package",
   "main": "index.ts",
   "scripts": {
-    "build": "prisma generate",
+    "build": "npm run db:generate",
+    "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate --accept-data-loss",
     "db:studio": "prisma studio --port 5556"
   },
