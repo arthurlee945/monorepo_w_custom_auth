@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x"
+  },
   "private": true,
   "scripts": {
     "build": "dotenv -- turbo run build",
