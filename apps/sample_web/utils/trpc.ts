@@ -22,7 +22,7 @@ export const trpc = createTRPCNext<AppRouter>({
                         process.env.NODE_ENV === "development" || (opts.direction === "down" && opts.result instanceof Error),
                 }),
                 httpBatchLink({
-                    url: `${getBaseUrl()}/api/trpc`,
+                    url: `${getBaseUrl()}/api/proxy/trpc`,
                     headers() {
                         if (!ctx || !ctx.req || !ctx.res) {
                             return {};
